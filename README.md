@@ -3,40 +3,39 @@
 Gophish
 =======
 
-![Build Status](https://github.com/gophish/gophish/workflows/CI/badge.svg) [![GoDoc](https://godoc.org/github.com/gophish/gophish?status.svg)](https://godoc.org/github.com/gophish/gophish)
-
 Gophish: Open-Source Phishing Toolkit
 
 [Gophish](https://getgophish.com) is an open-source phishing toolkit designed for businesses and penetration testers. It provides the ability to quickly and easily setup and execute phishing engagements and security awareness training.
 
+Patched Gophish
+===============
+
+This repo is a patched variant of gophish that is specifically tailored to running Office 365 product simulations. This variant of gophish has removed all indicators of compromise (that I could find) and has a very nice install script that automatically configures TLS through Lets Encrypt and then sets up gophish as a service and enables it by default. 
+
 ### Install
 
-Installation of Gophish is dead-simple - just download and extract the zip containing the [release for your system](https://github.com/gophish/gophish/releases/), and run the binary. Gophish has binary releases for Windows, Mac, and Linux platforms.
+Simply run the `gophish_install.sh` file as root (you don't even really need the full repo, you can just download the script from here: [gophish_install.sh](https://raw.githubusercontent.com/austinzwile/gophish-patched/refs/heads/master/gophish_install.sh) and then all you have to do is:
 
-### Building From Source
-**If you are building from source, please note that Gophish requires Go v1.10 or above!**
-
-To build Gophish from source, simply run ```git clone https://github.com/gophish/gophish.git``` and ```cd``` into the project source directory. Then, run ```go build```. After this, you should have a binary called ```gophish``` in the current directory.
-
-### Docker
-You can also use Gophish via the official Docker container [here](https://hub.docker.com/r/gophish/gophish/).
-
-### Setup
-After running the Gophish binary, open an Internet browser to https://localhost:3333 and login with the default username and password listed in the log output.
-e.g.
-```
-time="2020-07-29T01:24:08Z" level=info msg="Please login with the username admin and the password 4304d5255378177d"
+```bash
+chmod +x ./gophish_install.sh
+sudo ./gophish_install.sh "example.com" "youremail@whatever.com"
 ```
 
-Releases of Gophish prior to v0.10.1 have a default username of `admin` and password of `gophish`.
+And it will automatically take care of the everything for you.
+
+Enjoy!
 
 ### Documentation
 
-Documentation can be found on our [site](http://getgophish.com/documentation). Find something missing? Let us know by filing an issue!
+Documentation can be found on [site](http://getgophish.com/documentation). Find something missing? Let the gophish team (or me) know by filing an issue!
 
 ### Issues
 
-Find a bug? Want more features? Find something missing in the documentation? Let us know! Please don't hesitate to [file an issue](https://github.com/gophish/gophish/issues/new) and we'll get right on it.
+Find a bug? Want more features? Find something missing in the documentation? Let us know! Please don't hesitate to [file an issue](https://github.com/austinzwile/gophish-patched/issues/new) and I'll get right on it.
+
+### Credits
+
+Mad respect to the creators of Gophish, I did not create this project but it has been critical in the execution of hundreds of my social engineering engagements over the years. But if you like the very minor changes I've made to the product, feel free to go star the project along with the original [here](https://github.com/gophish/gophish).
 
 ### License
 ```
